@@ -16,14 +16,14 @@ export default {
   },
   async created() {
     //第一种解决跨域问题的方法：使用CORS，需要在后端配置响应头
-    // const res = await fetch("http://localhost:3002/api/getPicList");
-    // const resJson = await res.json();
-    // this.urls = resJson.data;
-
-    //第二种方法：使用webpack转发数据,请求时不指定域名,然后在vue.config.js里面配置转发
-    const res = await fetch("/api/getPicList");
+    const res = await fetch("http://47.99.121.239:3002/api/getPicList");
     const resJson = await res.json();
     this.urls = resJson.data;
+
+    //第二种方法：使用webpack转发数据,请求时不指定域名,然后在vue.config.js里面配置转发
+    // const res = await fetch("/api/getPicList");
+    // const resJson = await res.json();
+    // this.urls = resJson.data;
   },
 };
 </script>

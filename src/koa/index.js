@@ -20,19 +20,19 @@ router.get('/api/getPicList', async (ctx) => {
 })
 
 //通过修改响应头（CORS）解决跨域问题
-// app.use(async (ctx, next) => {
-//   ctx.set("Access-Control-Allow-Origin", "http://localhost:8080")
-//   ctx.set(
-//     "Access-Control-Allow-Headers",
-//     "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
-//   )
-//   ctx.set("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS")
-//   if (ctx.method === "OPTIONS") {
-//     ctx.body = 200
-//   } else {
-//     await next()
-//   }
-// })
+app.use(async (ctx, next) => {
+  ctx.set("Access-Control-Allow-Origin", "http://localhost:8080")
+  ctx.set(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
+  )
+  ctx.set("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS")
+  if (ctx.method === "OPTIONS") {
+    ctx.body = 200
+  } else {
+    await next()
+  }
+})
 app.use(router.routes())
 app.use(router.allowedMethods())
 
