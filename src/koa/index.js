@@ -21,7 +21,7 @@ router.get('/api/getPicList', async (ctx) => {
 
 //通过修改响应头（CORS）解决跨域问题
 app.use(async (ctx, next) => {
-  ctx.set("Access-Control-Allow-Origin", "http://logviv.com/")
+  ctx.set("Access-Control-Allow-Origin", "http://logviv.com")
   ctx.set(
     "Access-Control-Allow-Headers",
     "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
