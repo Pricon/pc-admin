@@ -21,7 +21,7 @@ export default {
     // this.urls = resJson.data;
 
     //第二种方法：使用webpack转发数据,请求时不指定域名,然后在vue.config.js里面配置转发
-    const res = await fetch("http://47.99.121.239/api/getPicList");
+    const res = await fetch("http://47.99.121.239:3002/api/getPicList");
     const resJson = await res.json();
     this.urls = resJson.data;
   },
